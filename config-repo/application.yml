@@ -11,5 +11,8 @@ spring:
     default-property-inclusion: non_empty
   redis:
     host: localhost
+security:
+  basic:
+    enabled: false
 mybatis:
   mapper-locations: classpath*:mapper/*Mapper.xml
