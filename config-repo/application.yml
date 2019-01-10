@@ -5,16 +5,12 @@ eureka:
 spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:mysql://localhost:1521/dbName?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    url: jdbc:mysql://localhost/dbName?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=false
     username: root
     password: root
     driver-class-name: com.mysql.jdbc.Driver
-#  jackson:
-#    date-format: yyyy-MM-dd HH:mm:ss
-#    property-naming-strategy: CAMEL_CASE_TO_LOWER_CASE_WITH_UNDERSCORES
-#    default-property-inclusion: non_empty
   redis:
-    host: 10.1.234.52
+    host: localhost
     password: opaas
   rabbitmq:
     host: localhost
@@ -36,14 +32,18 @@ management:
 mybatis:
   mapper-locations: classpath*:mapper/*Mapper.xml
 
+logstash:
+  destination: 127.0.0.1:4560
+
 logging:
+  config: classpath:logback-delay.xml
   path: logs
   level:
     root: info
-    com.aici: debug
-    org.springframework:  info
-    org.mybatis.spring: info
 
+
+test:
+  fresh: 6
 
 
 
